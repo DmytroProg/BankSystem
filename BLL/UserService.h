@@ -47,5 +47,18 @@ public:
 
 		return iter;
 	}
+
+	bool isValid(const User& user) override {
+		if (user.getName().empty())
+			return false;
+
+		if (user.getLogin().empty())
+			return false;
+
+		if (user.getPassword().empty())
+			return false;
+
+		return true;
+	}
 };
 

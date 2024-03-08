@@ -28,6 +28,24 @@ public:
 
 			cout << (*user).getName() << endl;
 		}
+		else if (index == 2) {
+			User user;
+			string data;
+
+			cout << "Enter name: ";
+			cin >> data;
+			user.setName(data);
+
+			cout << "Enter login: ";
+			cin >> data;
+			user.setLogin(data);
+
+			cout << "Enter password: ";
+			cin >> data;
+			user.setPassword(data);
+
+			userService->add(user);
+		}
 	}
 
 private:

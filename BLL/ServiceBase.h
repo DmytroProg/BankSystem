@@ -8,6 +8,9 @@ protected:
 
 public:
 	virtual void add(T item) {
+		if (!isValid(item))
+			throw new std::exception("not valid");
+
 		items.push_back(item);
 	}
 
@@ -16,5 +19,7 @@ public:
 	std::vector<T> getAll() const{
 		return items;
 	}
+
+	virtual bool isValid(const T& item) = 0;
 };
 
