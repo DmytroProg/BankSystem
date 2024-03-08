@@ -1,6 +1,7 @@
 #pragma once
 #include "ServiceBase.h"
 #include "User.h"
+#include "EqualPred.h"
 
 class UserService : public ServiceBase<User>
 {

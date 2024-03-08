@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClInclude Include="Card.h" />
     <ClInclude Include="CardService.h" />
+    <ClInclude Include="EqualPred.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="not_supported_error.h" />
     <ClInclude Include="pch.h" />
@@ -152,6 +153,7 @@
     <ClCompile Include="BLL.cpp" />
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="CardService.cpp" />
+    <ClCompile Include="EqualPred.cpp" />
     <ClCompile Include="not_supported_error.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
