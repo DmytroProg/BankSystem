@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+#include <vector>
+#include "Card.h"
 using namespace std;
 
 class User
@@ -17,6 +19,7 @@ public:
 	void setLogin(string login) { this->login = login; }
 	void setPassword(string password) { this->password = password; }
 
+	vector<Card> cards;
 private:
 	string name;
 	string login;
