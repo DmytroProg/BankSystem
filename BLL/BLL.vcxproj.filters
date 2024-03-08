@@ -33,6 +33,12 @@
     <ClInclude Include="UserService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CardService.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="not_supported_error.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BLL.cpp">
@@ -51,6 +57,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="UserService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CardService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="not_supported_error.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -5,10 +5,6 @@
 class UserService : public ServiceBase<User>
 {
 public:
-	void add(User item) override{
-		items.push_back(item);
-	}
-
 	void remove(User item) override{
 		
 		items.erase(getUserByLogin(item.getLogin()));

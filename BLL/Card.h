@@ -4,6 +4,7 @@ using namespace std;
 
 class Card
 {
+public:
 	Card() {}
 	Card(long number, int cvv, int month, int day, string user_login) 
 		: number(number), cvv(cvv), expired_month(month), expired_day(day), user_login(user_login)
