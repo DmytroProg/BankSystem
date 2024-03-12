@@ -93,6 +93,23 @@ public:
 					cout << "---------------------------" << endl;
 				}
 				break;
+			case 3: {
+				string number;
+				cout << "Enter number: ";
+				// validate
+				cin >> number;
+
+				Card card;
+				card.setNumber(number);
+
+				//cardService->find(func);
+				// validate
+				cardService->remove(card);
+				auto userCard = find_if(currentUser->cards.begin(), currentUser->cards.end(),
+					[number](const Card& c) { return c.getNumber() == number; });
+				currentUser->cards.erase(userCard);
+			}
+		    break;
 			}
 			system("PAUSE");
 			system("CLS");

@@ -6,24 +6,35 @@
 class UserService : public ServiceBase<User>
 {
 public:
+
 	void remove(User item) override{
-		
-		//TODO
-		/*auto user = find_if(items.begin(), items.end(),
-			[item](const User& u) { return u.getLogin() == item.getLogin(); });
-		items.erase(user);*/
+		try {
+			auto user = find_if(items.begin(), items.end(),
+				[item](const User& u) { return u.getLogin() == item.getLogin(); });
+			items.erase(user);
+			logger.LogInfo("User " + item.getLogin() + " was removed");
+		}
+		catch (exception& ex) {
+			logger.LogError(ex);
+		}
 	}
 
 	void update(User oldItem, User newItem) override {
-		auto user = find_if(items.begin(), items.end(),
-			[oldItem](const User& u) { return u.getLogin() == oldItem.getLogin(); });
+		try {
+			auto user = find_if(items.begin(), items.end(),
+				[oldItem](const User& u) { return u.getLogin() == oldItem.getLogin(); });
 
-		if (user == items.end())
-			throw new exception("no user found");
+			if (user == items.end())
+				throw new exception("no user found");
 
-		(*user).setLogin(newItem.getLogin());
-		(*user).setName(newItem.getName());
-		(*user).setPassword(newItem.getPassword());
+			(*user).setLogin(newItem.getLogin());
+			(*user).setName(newItem.getName());
+			(*user).setPassword(newItem.getPassword());
+			logger.LogInfo("User " + oldItem.getLogin() + " was updated");
+		}
+		catch (exception& ex) {
+			logger.LogError(ex);
+		}
 	}
 
 	bool isValid(const User& user) override {

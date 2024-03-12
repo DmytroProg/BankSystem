@@ -6,29 +6,23 @@
 class CardService : public ServiceBase<Card>
 {
 public:
-	void remove(Card item) override {
 
-		items.erase(getCardByNumber(item.getNumber()));
+	void remove(Card item) override {
+		try {
+			auto card = find_if(items.begin(), items.end(),
+				[item](const Card& c) { return c.getNumber() == item.getNumber(); });
+			if (card == items.end())
+				throw exception("card is null");
+			items.erase(card);
+			logger.LogInfo("Card " + item.getNumber() + " was removed");
+		}
+		catch (exception& ex) {
+			logger.LogError(ex);
+		}
 	}
 
 	void update(Card oldItem, Card newItem) override {
 		throw new not_supported_error("Update method is not supported for card service");
-	}
-
-	vector<Card>::const_iterator getCardByNumber(string number) const {
-		auto iter = items.begin();
-
-		while (iter != items.end()) {
-			if ((*iter).getNumber() == number) {
-				break;
-			}
-			iter++;
-		}
-
-		if (iter == items.end())
-			throw new exception("no card found");
-
-		return iter;
 	}
 
 	bool isValid(const Card& user) override {

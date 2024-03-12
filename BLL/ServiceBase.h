@@ -1,17 +1,21 @@
 #pragma once
 #include <vector>
+#include "../DAL/Logger.h"
 template<typename T>
 class ServiceBase
 {
 protected:
 	std::vector<T> items;
+	Logger logger;
 
 public:
+
 	virtual void add(T item) {
 		if (!isValid(item))
 			throw new std::exception("not valid");
 
 		items.push_back(item);
+		logger.LogInfo("New item added");
 	}
 
 	virtual void remove(T item) = 0;
