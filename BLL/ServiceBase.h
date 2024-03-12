@@ -21,5 +21,14 @@ public:
 	}
 
 	virtual bool isValid(const T& item) = 0;
+
+	typename auto find(bool (*pred)(const T& item)) {
+		for (auto iter = items.begin(); iter != items.end(); iter++) {
+			if (pred(*iter)) {
+				return iter;
+			}
+		}
+		return items.end();
+	}
 };
 

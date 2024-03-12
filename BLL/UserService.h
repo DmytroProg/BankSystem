@@ -8,44 +8,22 @@ class UserService : public ServiceBase<User>
 public:
 	void remove(User item) override{
 		
-		items.erase(getUserByLogin(item.getLogin()));
+		//TODO
+		/*auto user = find_if(items.begin(), items.end(),
+			[item](const User& u) { return u.getLogin() == item.getLogin(); });
+		items.erase(user);*/
 	}
 
 	void update(User oldItem, User newItem) override {
-		/*auto iter = getUserByLogin(oldItem.getLogin());
-		(*iter).setName(newItem.getName());*/
+		auto user = find_if(items.begin(), items.end(),
+			[oldItem](const User& u) { return u.getLogin() == oldItem.getLogin(); });
 
-		auto iter = items.begin();
-
-		while (iter != items.end()) {
-			if ((*iter).getLogin() == oldItem.getLogin()) {
-				break;
-			}
-			iter++;
-		}
-
-		if (iter == items.end())
+		if (user == items.end())
 			throw new exception("no user found");
 
-		(*iter).setLogin(newItem.getLogin());
-		(*iter).setName(newItem.getName());
-		(*iter).setPassword(newItem.getPassword());
-	}
-
-	vector<User>::const_iterator getUserByLogin(string login) const {
-		auto iter = items.begin();
-
-		while (iter != items.end()) {
-			if ((*iter).getLogin() == login) {
-				break;
-			}
-			iter++;
-		}
-
-		if (iter == items.end())
-			throw new exception("no user found");
-
-		return iter;
+		(*user).setLogin(newItem.getLogin());
+		(*user).setName(newItem.getName());
+		(*user).setPassword(newItem.getPassword());
 	}
 
 	bool isValid(const User& user) override {

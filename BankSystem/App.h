@@ -90,7 +90,7 @@ public:
 					cout << "Number: " << card.getNumber() << endl;
 					cout << "CVV: " << card.getCVV() << endl;
 					cout << "Exp. data: " << card.getExpiredMonth() << "/" << card.getExpiredDay() << endl;
-					cout << "---------------------------";
+					cout << "---------------------------" << endl;
 				}
 				break;
 			}
